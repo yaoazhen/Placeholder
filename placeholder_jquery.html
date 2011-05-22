@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>CSS Newbie Example: Test for Placeholder Support</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="js/jquery-1.4.4.min.js"><\/script>')</script>
+<script>
+// This adds 'placeholder' to the items listed in the jQuery .support object. 
+jQuery(function() {
+   jQuery.support.placeholder = false;
+   test = document.createElement('input');
+   if('placeholder' in test) jQuery.support.placeholder = true;
+});
+// This adds placeholder support to browsers that wouldn't otherwise support it. 
+$(function() {
+   if(!$.support.placeholder) { 
+      var active = document.activeElement;
+      $('[placeholder]:text').focus(function () {
+         if ($(this).attr('placeholder') != '' && $(this).val() == $(this).attr('placeholder')) {
+            $(this).val('').removeClass('hasPlaceholder');
+         }
+      }).blur(function () {
+         if ($(this).attr('placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('placeholder'))) {
+            $(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
+         }
+      });
+      $('[placeholder]:text').blur();
+      $(active).focus();
+      $('[placeholder]').parents('form').submit(function() {
+         $(':text.hasPlaceholder').val('');
+      });
+   }
+});
+</script>
+<style>
+body {
+   font: x-large/1.4 Georgia, "Times New Roman", Times, serif;
+   text-align: center; }
+#infobox {
+   width: 400px;
+   margin: 20px auto;
+   padding: 20px;
+   color: #333;
+   background-color: #9fe1ff;
+   border: 4px solid #333;
+   /* Our massive border-radius stack. */
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   -o-border-radius: 10px;
+   -khtml-border-radius: 10px;
+   border-radius: 10px;
+   -moz-box-shadow: 0 0 5px #333;
+}
+#infobox input {
+   width: 80%;
+}
+
+
+/* fallback placeholder */
+.hasPlaceholder .placeholder ,::-webkit-input-placeholder ,:-moz-placeholder{
+	color: #777;
+}
+
+</style>
+</head>
+<body>
+   <div id="infobox">
+      <input type="text" placeholder="This works in all modern browsers!" />  
+      <input type="text" value="" />  
+   </div>
+</body>
+</html>
