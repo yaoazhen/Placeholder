@@ -1,11 +1,11 @@
 /* fallback placeholder */
 .hasPlaceholder, .placeholder {
-	color: red;
+	color: #777;
 }
 ::-webkit-input-placeholder 
 {
-	color: red;
+	color: #777;
 }
 :-moz-placeholder{
-	color: red;
+	color: #777;
 }
