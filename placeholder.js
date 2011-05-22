@@ -12,7 +12,7 @@ jQuery(function() {
 jQuery(function() {
    if(!$.support.placeholder) { 
       var active = document.activeElement;
-      $('[placeholder]:text').focus(function () {
+      $('[placeholder]:text').add('textarea[placeholder]').focus(function () {
          if ($(this).attr('placeholder') != '' && $(this).val() == $(this).attr('placeholder')) {
             $(this).val('').removeClass('hasPlaceholder');
          }
@@ -21,7 +21,7 @@ jQuery(function() {
             $(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
          }
       });
-      $('[placeholder]:text').blur();
+      $('[placeholder]:text').add('textarea[placeholder]').blur();
       $(active).focus();
       $('[placeholder]').parents('form').submit(function() {
          $(':text.hasPlaceholder').val('');

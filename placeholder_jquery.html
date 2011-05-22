@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <title>CSS Newbie Example: Test for Placeholder Support</title>
+<link href="placeholder.css" media="screen" rel="stylesheet" type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script>!window.jQuery && document.write('<script src="js/jquery-1.4.4.min.js"><\/script>')</script>
 
-<script src="placeholder.js"></script>
+<script src="placeholder.js" type="text/javascript"></script>
 <style>
 body {
    font: x-large/1.4 Georgia, "Times New Roman", Times, serif;
@@ -30,12 +31,11 @@ body {
    width: 80%;
 }
 </style>
-<link rel="stylesheet" src="placeholder.css">
 </head>
 <body>
    <div id="infobox">
       <input type="text" placeholder="This works in all modern browsers!" />  
-      <input type="text" value="" />  
+      <textarea placeholder="Write your comments here"></textarea>
    </div>
 </body>
 </html>
