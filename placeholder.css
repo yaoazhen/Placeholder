@@ -1,0 +1,4 @@
+/* fallback placeholder */
+.hasPlaceholder .placeholder ,::-webkit-input-placeholder ,:-moz-placeholder{
+	color: #777;
+}
